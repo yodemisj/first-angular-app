@@ -1,14 +1,10 @@
-import { Component, computed, EventEmitter, input, Output, output } from '@angular/core';
-
-type User = {
-  id: string; 
-  name: string;
-  avatar: string
-};
+import { Component, computed, input, output } from '@angular/core';
+import { type User } from './user.model';
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
@@ -27,6 +23,7 @@ export class UserComponent {
   // }
 
   user = input.required<User>();
+  selected = input.required<boolean>();
 
   // id = input.required<string>();
   // name = input.required<string>();
